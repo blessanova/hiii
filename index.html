@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hiii</title>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background: black;
-  width:100vw;
-  overflow-x:hidden;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-}
-img {
-  width:100%;
-  margin:1px;
-  object-fit:cover;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Background Photo Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg.top; {
+            background-image: url("background1.jpeg");
+        }
+
+        .bg.center; {
+            background-image: url("background2.jpeg");
+        }
+
+        .bg.bottom; {
+            background-image: url("background3.jpeg");
+        }
+
+        button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 22px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            backdrop-filter: blur(6px);
+        }
+    </style>
 </head>
 <body>
 
-<audio autoplay loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+    <!-- Background sections -->
+    <div class="bg top"></div>
+    <div class="bg center"></div>
+    <div class="bg bottom"></div>
 
-<img src="assets/background1.jpeg">
-<img src="assets/background2.jpeg">
-<img src="assets/background3.jpeg>
+
+    <!-- Music -->
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="document.getElementById('bgm').play()">▶ Play Music</button>
 
 </body>
 </html>
+
