@@ -6,31 +6,31 @@
 <title></title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { width:100vw; height:100vh; overflow-x:hidden; }
-.bg {
-  position:fixed;
+body {
+  background: black;
   width:100vw;
-  height:100vh;
-  top:0; left:0;
-  z-index:-1;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+img {
+  width:100%;
+  margin:1px;
   object-fit:cover;
 }
 </style>
 </head>
 <body>
+
 <audio autoplay loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
-<img src="assets/background1.jpeg" class="bg" id="bg1">
-<img src="assets/background2.jpeg" class="bg" id="bg2" style="display:none;">
-<img src="assets/background3.jpeg" class="bg" id="bg3" style="display:none;">
-<script>
-window.addEventListener("scroll",()=>{
-  let y=window.scrollY, h=innerHeight;
-  bg1.style.display = y < h ? "block" : "none";
-  bg2.style.display = y >= h && y < h*2 ? "block" : "none";
-  bg3.style.display = y >= h*2 ? "block" : "none";
-});
-</script>
+
+<img src="assets/background1.jpeg">
+<img src="assets/background2.jpeg">
+<img src="assets/background3.jpeg>
+
 </body>
 </html>
