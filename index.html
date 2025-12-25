@@ -1,102 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiii</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            width: 100vw;
-            height: 100vh;
-            overflow-x: hidden;
-            font-family: "Castro Script", cursive, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        /* 3 still background images stacked vertically */
-        .bg {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            object-fit: cover;
-        }
-
-        .content {
-            width: 100%;
-            min-height: 300vh; /* supaya scroll vertikal terasa */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-        }
-
-        section {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 18px;
-            max-width: 320px;
-            opacity: 0.8;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:100vw; height:100vh; overflow-x:hidden; }
+.bg {
+  position:fixed;
+  width:100vw;
+  height:100vh;
+  top:0; left:0;
+  z-index:-1;
+  object-fit:cover;
+}
+</style>
 </head>
 <body>
-
-    <!-- Background music -->
-    <audio autoplay loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- 3 Still Background Images -->
-    <img src="assets/background1.jpeg" class="bg" id="bg1">
-    <img src="assets/background2.jpeg" class="bg" id="bg2" style="display:none;">
-    <img src="assets/background3.jpeg" class="bg" id="bg3" style="display:none;">
-
-    <script>
-        // Ganti background saat scroll mencapai tiap section
-        window.addEventListener("scroll", () => {
-            let scrollY = window.scrollY;
-            let h = window.innerHeight;
-
-            if (scrollY < h) {
-                bg1.style.display = "block";
-                bg2.style.display = "none";
-                bg3.style.display = "none";
-            } else if (scrollY < h * 2) {
-                bg1.style.display = "none";
-                bg2.style.display = "block";
-                bg3.style.display = "none";
-            } else {
-                bg1.style.display = "none";
-                bg2.style.display = "none";
-                bg3.style.display = "block";
-            }
-        });
-    </script>
-
+<audio autoplay loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+<img src="assets/background1.jpeg" class="bg" id="bg1">
+<img src="assets/background2.jpeg" class="bg" id="bg2" style="display:none;">
+<img src="assets/background3.jpeg" class="bg" id="bg3" style="display:none;">
+<script>
+window.addEventListener("scroll",()=>{
+  let y=window.scrollY, h=innerHeight;
+  bg1.style.display = y < h ? "block" : "none";
+  bg2.style.display = y >= h && y < h*2 ? "block" : "none";
+  bg3.style.display = y >= h*2 ? "block" : "none";
+});
+</script>
 </body>
 </html>
